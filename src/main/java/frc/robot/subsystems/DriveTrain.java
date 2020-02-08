@@ -11,8 +11,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 //import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Solenoid;
+
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -27,7 +26,7 @@ public class DriveTrain extends SubsystemBase {
   WPI_VictorSPX driveRight, driveRightFollower, driveLeft, driveLeftFollower;
   SpeedControllerGroup rightGroup, leftGroup;
   DifferentialDrive driveMotors;
-  DoubleSolenoid solenoid;
+
 
   public DriveTrain() {
     driveRight=new WPI_VictorSPX(Constants.DriveTrain.driveRightVictorChannel);
@@ -37,7 +36,7 @@ public class DriveTrain extends SubsystemBase {
     rightGroup = new SpeedControllerGroup(driveRight, driveRightFollower);
     leftGroup= new SpeedControllerGroup(driveLeft, driveLeftFollower);
     driveMotors = new DifferentialDrive(rightGroup, leftGroup);
-    solenoid = new DoubleSolenoid(0,1);
+
     //driveRightFollower.follow(driveRight);
     //driveLeftFollower.follow(driveLeft);
 
@@ -54,9 +53,7 @@ public class DriveTrain extends SubsystemBase {
     driveMotors.arcadeDrive(power, rot);
   }
 
-  public void doubleSolenoidActuate(Value state){
-    solenoid.set(state);
-  }
+
 
   @Override
   public void periodic() {
