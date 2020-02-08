@@ -8,13 +8,20 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+//import edu.wpi.first.wpilibj2.Encoder;
+import frc.robot.Constants;
+import frc.robot.Robot;
+import frc.robot.RobotContainer;
+
 
 public class Hanger extends CommandBase {
   /**
    * Creates a new Hanger.
    */
-  public Hanger() {
+  //private final 
+   public Hanger() {
     // Use addRequirements() here to declare subsystem dependencies.
+    //requires(Robot.)
   }
 
   // Called when the command is initially scheduled.

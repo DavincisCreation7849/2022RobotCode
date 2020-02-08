@@ -7,27 +7,18 @@
 
 package frc.robot.commands;
 
-
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Box;
 
-public class Door extends CommandBase {
+
+public class DoorClose extends CommandBase {
+  Box m_box;
   /**
-   * Creates a new Door.
+   * Creates a new DoorClose.
    */
-  private Box m_Box;
-  private JoystickButton m_Joystick;
-  private JoystickButton closeButton;
-
-
-  public Door(Box box, JoystickButton joystick, JoystickButton close) {
+  public DoorClose(Box boxx) {
     // Use addRequirements() here to declare subsystem dependencies.
-
-    m_Box=box;
-    m_Joystick=joystick;
-    closeButton=close;
-    addRequirements(box);
+    m_box = boxx;
   }
 
   // Called when the command is initially scheduled.
@@ -38,18 +29,7 @@ public class Door extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    System.out.print("WOAH!");
-    boolean button = m_Joystick.get();
-    boolean button2 = closeButton.get();
-    if(button==true)
-    {
-      m_Box.doorOpen(m_Box.checkDoor());
-      System.out.print("WOW!");
-    }
-      else if(button2==true){
-       //m_Box.doorClose(m_Box.checkDoor()); 
-       System.out.print("HEY!");
-      }
+    m_box.doorClose();
   }
 
   // Called once the command ends or is interrupted.
@@ -60,6 +40,6 @@ public class Door extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }

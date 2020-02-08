@@ -19,8 +19,8 @@ public class Box extends SubsystemBase {
   DoubleSolenoid solenoidBox;
 
   public Box() {
-    solenoidBox = new DoubleSolenoid(0,1); //Foward --> 0 , Reverse --> 1
-    solenoidDoor = new DoubleSolenoid(2,3); //Foward --> 2 , Reverse --> 3
+    solenoidDoor = new DoubleSolenoid(6,0,1); //Foward --> 0 , Reverse --> 1
+    solenoidBox = new DoubleSolenoid(6,2,3); //Foward --> 2 , Reverse --> 3
 
   }
 
@@ -29,17 +29,21 @@ public class Box extends SubsystemBase {
   }
 
   public void doorOpen(DoubleSolenoid.Value value){
+    /*
     if(value==Value.kOff)
     {
       solenoidDoor.set(value.kForward);
     }
     else if(value==Value.kReverse)
     {
-      solenoidDoor.set(value.kForward);
+      solenoidDoor.set(value.kReverse);
     }
+    */
+    solenoidDoor.set(Value.kForward);
   }
 
-  public void doorClose(DoubleSolenoid.Value value){
+  public void doorClose(/*DoubleSolenoid.Value value*/){
+    /*
     if(value==Value.kOff)
     {
       solenoidDoor.set(value.kReverse);
@@ -48,6 +52,8 @@ public class Box extends SubsystemBase {
     {
       solenoidDoor.set(value.kReverse);
     }
+    */
+    solenoidDoor.set(Value.kReverse);
   }
   public Value checkDoor(){
     return solenoidDoor.get();
@@ -57,5 +63,6 @@ public class Box extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    
   }
 }

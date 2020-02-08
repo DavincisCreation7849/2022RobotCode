@@ -9,13 +9,18 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.subsystems.*;
+import frc.robot.commands.Door;
+import frc.robot.commands.DoorOpen;
+import frc.robot.commands.DoorClose;
 import frc.robot.commands.Drive;
 //import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.driveLineAuto;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -25,17 +30,24 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-
+  
 //  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   private final DriveTrain m_drivetrain = new DriveTrain();
+  
+  public Box m_box = new Box();
 
   public Joystick driveJoystick = new Joystick(0);
+
+  public JoystickButton button_solenoid = new JoystickButton(driveJoystick, 1);
+
+  public JoystickButton button_solenoid2 = new JoystickButton(driveJoystick, 2);
 
   private final driveLineAuto driveAuto = new driveLineAuto(m_drivetrain);
 
   private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);
+
+  private final Door m_Door= new Door(m_box, button_solenoid, button_solenoid2);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -54,7 +66,8 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-
+    button_solenoid.whenPressed(new DoorOpen(m_box));
+    button_solenoid2.whenPressed(new DoorClose(m_box));
   }
 
 

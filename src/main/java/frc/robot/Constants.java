@@ -22,5 +22,27 @@ public final class Constants {
         public static final int driveRightFoloowerVictorChannel= 3;
         public static final int driveLeftVictorChannel = 2;
         public static final int driveLeftFollowerVictorChannel= 1;
+        public static final int solenoidBox = 5;
+        //public static final int HANG_TALON = 5;
+        //public static final int TILT_TALON = 6;
+        //public static final int ELEVATOR_TALON = 7;
     }
-}
+    
+
+    public final class controllerButtons{
+        public static final int DRIVER_CONTROLLER_X = 1;
+        public static final int DRIVER_CONTROLLER_A = 2;
+        public static final int DRIVER_CONTROLLER_B = 3; 
+        public static final int DRIVER_CONTROLLER_Y = 4; 
+        public static final int DRIVER_CONTROLLER_LB = 5;
+        public static final int DRIVER_CONTROLLER_RB = 6;
+        public static final int DRIVER_CONTROLLER_LEFTTRIGGER = 7;
+        public static final int DRIVER_CONTROLLER_RIGHTTRIGGER = 8;
+        public static final int DRIVER_CONTROLLER_BACK = 9;
+        public static final int DRIVER_CONTROLLER_START = 10;
+        public static final int DRIVER_CONTROLLER_LEFTTRIGGERCLICK = 11;
+        public static final int DRIVER_CONTROLLER_RIGHTTRIGGERCLICK = 12;
+            
+    }
+    
+}   
