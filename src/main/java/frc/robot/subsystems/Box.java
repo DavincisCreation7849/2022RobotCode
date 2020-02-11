@@ -25,10 +25,11 @@ public class Box extends SubsystemBase {
   }
 
   public void doubleSolenoidActuate(Value state){
-    solenoidBox.set(state);
+    solenoidBox.set(state); 
+    solenoidDoor.set(state); //RMW
   }
 
-  public void doorOpen(DoubleSolenoid.Value value){
+  public void doorOpen(/*DoubleSolenoid.Value value*/){
     /*
     if(value==Value.kOff)
     {
@@ -41,6 +42,7 @@ public class Box extends SubsystemBase {
     */
     solenoidDoor.set(Value.kForward);
   }
+
 
   public void doorClose(/*DoubleSolenoid.Value value*/){
     /*
@@ -55,10 +57,23 @@ public class Box extends SubsystemBase {
     */
     solenoidDoor.set(Value.kReverse);
   }
+  
+  public void boxLoad(/*DoubleSolenoid.Value value*/){
+    solenoidBox.set(Value.kForward);
+
+  }
+
+  public void boxDump(){
+    solenoidBox.set(Value.kReverse);
+  }
+
   public Value checkDoor(){
     return solenoidDoor.get();
   }
+  public Value checkBox(){
+    return solenoidBox.get();
 
+  }
   
   @Override
   public void periodic() {

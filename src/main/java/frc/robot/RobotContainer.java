@@ -43,11 +43,17 @@ public class RobotContainer {
 
   public JoystickButton button_solenoid2 = new JoystickButton(driveJoystick, 2);
 
+  public JoystickButton button_solenoid3 = new JoystickButton(driveJoystick, 3);
+
+  public JoystickButton button_solenoid4 = new JoystickButton(driveJoystick, 4);
+
   private final driveLineAuto driveAuto = new driveLineAuto(m_drivetrain);
 
   private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);
 
   private final Door m_Door= new Door(m_box, button_solenoid, button_solenoid2);
+
+  private final Tilter m_Tilter= new Tilter(m_box, button_solenoid3, button_solenoid4);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.

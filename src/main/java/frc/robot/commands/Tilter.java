@@ -7,49 +7,47 @@
 
 package frc.robot.commands;
 
-
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.subsystems.Box;
+import frc.robot.subsystems.*;
 
-public class Door extends CommandBase {
+
+public class Tilter extends CommandBase {
   /**
-   * Creates a new Door.
+   * Creates a new Tilter.
    */
   private Box m_Box;
-  private JoystickButton openButton;
-  private JoystickButton closeButton;
+  private JoystickButton loadButton;
+  private JoystickButton dumpButton;
 
-
-  public Door(Box box, JoystickButton open, JoystickButton close) {
-    // Use addRequirements() here to declare subsystem dependencies.
-
+  public Tilter(Box box, JoystickButton load, JoystickButton dump) {
     m_Box=box;
-    openButton=open;
-    closeButton=close;
-    addRequirements(box);
+    loadButton=load;
+    dumpButton=dump;
+
+    // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    System.out.print("BUTTON COMMAND!");
-    boolean button = openButton.get();
-    boolean button2 = closeButton.get();
-    if(button==true)
-    {
-      m_Box.doorOpen();
-      System.out.print("OPEN SESAME!");
+    boolean button = loadButton.get();
+    boolean button2 = dumpButton.get();
+    if(button==true){
+    m_Box.boxLoad();
+    System.out.print("Load");
     }
-      else if(button2==true){
-       m_Box.doorClose(); 
-       System.out.print("YOU SHALL NOT PASS!");
-      }
+    else if(button2==true){
+      m_Box.boxDump();
+      System.out.print("Roll Out");
+
+    }
   }
 
   // Called once the command ends or is interrupted.
