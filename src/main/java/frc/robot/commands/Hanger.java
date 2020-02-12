@@ -7,11 +7,13 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.Encoder;
 import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
+import frc.robot.subsystems.DrHang;
 
 
 public class Hanger extends CommandBase {
@@ -19,9 +21,14 @@ public class Hanger extends CommandBase {
    * Creates a new Hanger.
    */
   //private final 
+  private DrHang hanger;
+  private Joystick dpad = new Joystick(0);
+  private int dpadValue = dpad.getPOV();
+  private double elevatorSpeed = 1.0;
    public Hanger() {
     // Use addRequirements() here to declare subsystem dependencies.
-    //requires(Robot.)
+    addRequirements(hanger);
+
   }
 
   // Called when the command is initially scheduled.
@@ -32,6 +39,17 @@ public class Hanger extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    if(dpadValue==0)
+    {
+      hanger.setElevatorPower(1.0);
+
+    }
+    else if (dpadValue==180){
+      hanger.setElevatorPower(-1.0);
+    }
+    else{
+      hanger.setElevatorPower(0.0);
+    }
   }
 
   // Called once the command ends or is interrupted.

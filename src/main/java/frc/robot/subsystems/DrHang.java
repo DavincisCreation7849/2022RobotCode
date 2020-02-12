@@ -9,6 +9,8 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.*;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import frc.robot.Constants;
 
 
@@ -17,38 +19,31 @@ public class DrHang extends SubsystemBase {
    * 
    * Creates a new DrHang.
    */
-  /*WPI_TalonSRX hangTalon;
+  WPI_TalonSRX hangTalon;
   WPI_TalonSRX elevatorTalon;
   WPI_TalonSRX TiltTalon;
-  Faults fault;*/
+  Faults fault;
 
 
   public DrHang() {
-    /*hangTalon = new WPI_TalonSRX(Constants.HANG_TALON);
+    hangTalon = new WPI_TalonSRX(6);
     hangTalon.configPeakCurrentLimit(5);
     hangTalon.configPeakCurrentDuration(100);
     hangTalon.configContinuousCurrentLimit(5);
 
-    elevatorTalon = new WPI_TalonSRX(Constants.ELEVATOR_TALON);
-
-    tiltTalon = new WPI_TalonSRX(Constants.Tilt_Talon);
-    fault = new Faults();*/
+    fault = new Faults();
 
 
 
   }
 
-  /*public void setArmPower(double power) {
-    hangTalon.set(ControlMode.PercentOutput, power);
-  }
+
 
   public void setElevatorPower(double power) {
-      elevatorTalon.set(ControlMode.PercentOutput, power);
+      hangTalon.set(ControlMode.PercentOutput, power);
   }
 
-  public void setTiltPower(double power) {
-    tiltTalon.set(ControlMode.PercentOutput, power);
-  }*/
+
 
   @Override
   public void periodic() {
