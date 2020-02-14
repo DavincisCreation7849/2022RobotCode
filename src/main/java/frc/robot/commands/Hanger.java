@@ -44,7 +44,7 @@ public class Hanger extends CommandBase {
       hanger.setElevatorPower(1.0);
 
     }
-    else if (dpadValue==180){
+    else if (dpadValue ==180){
       hanger.setElevatorPower(-1.0);
     }
     else{
