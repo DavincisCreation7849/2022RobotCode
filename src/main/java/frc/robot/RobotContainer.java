@@ -79,8 +79,8 @@ public class RobotContainer {
   private void configureButtonBindings() {
     button_solenoid.whenPressed(new DoorOpen(m_box));
     button_solenoid2.whenPressed(new DoorClose(m_box));
-    button_solenoid3.whenPressed(new Tilter(m_box, button_solenoid3, button_solenoid4 ));
-    button_solenoid4.whenPressed(new Tilter(m_box, button_solenoid3, button_solenoid4 ));
+    button_solenoid3.whenPressed(new Tilter(m_box, true ));
+    button_solenoid4.whenPressed(new Tilter(m_box, false));
   }
 
 

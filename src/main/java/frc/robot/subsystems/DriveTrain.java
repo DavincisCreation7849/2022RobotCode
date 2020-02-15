@@ -50,7 +50,7 @@ public class DriveTrain extends SubsystemBase {
   }
   
   public void arcadeDrive(double rot, double power){
-    driveMotors.arcadeDrive(power, rot);
+    driveMotors.arcadeDrive(power, rot*0.75);
   }
 
 

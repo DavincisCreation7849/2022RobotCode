@@ -17,13 +17,17 @@ public class Tilter extends CommandBase {
    * Creates a new Tilter.
    */
   private Box m_Box;
-  private JoystickButton loadButton;
-  private JoystickButton dumpButton;
+  
 
-  public Tilter(Box box, JoystickButton load, JoystickButton dump) {
+  public Tilter(Box box, boolean load) {
     m_Box=box;
-    loadButton=load;
-    dumpButton=dump;
+    if (load){
+      m_Box.boxLoad();
+
+    }
+    else{
+      m_Box.boxDump();
+    }
 
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -37,17 +41,9 @@ public class Tilter extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    boolean button = loadButton.get();
-    boolean button2 = dumpButton.get();
-    if(button==true){
-    m_Box.boxLoad();
-    System.out.print("Load");
-    }
-    else if(button2==true){
-      m_Box.boxDump();
-      System.out.print("Roll Out");
-
-    }
+    
+    
+    
   }
 
   // Called once the command ends or is interrupted.
@@ -58,6 +54,6 @@ public class Tilter extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
