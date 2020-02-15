@@ -38,23 +38,27 @@ public class RobotContainer {
   
   public Box m_box = new Box();
 
-  public Joystick driveJoystick = new Joystick(0);
+  public Joystick driveJoystick = new Joystick(1);
 
-  public JoystickButton button_solenoid = new JoystickButton(driveJoystick, 1);
+  public Joystick nonDriveJoystick = new Joystick(0);
 
-  public JoystickButton button_solenoid2 = new JoystickButton(driveJoystick, 2);
 
-  public JoystickButton button_solenoid3 = new JoystickButton(driveJoystick, 3);
 
-  public JoystickButton button_solenoid4 = new JoystickButton(driveJoystick, 4);
+  public JoystickButton button_solenoid = new JoystickButton(nonDriveJoystick, 1);
+
+  public JoystickButton button_solenoid2 = new JoystickButton(nonDriveJoystick, 2);
+
+  public JoystickButton button_solenoid3 = new JoystickButton(nonDriveJoystick, 3);
+
+  public JoystickButton button_solenoid4 = new JoystickButton(nonDriveJoystick, 4);
 
   private final driveLineAuto driveAuto = new driveLineAuto(m_drivetrain);
 
   private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);
 
-  private final Door m_Door= new Door(m_box, button_solenoid, button_solenoid2);
+  //private final Door m_Door= new Door(m_box, button_solenoid, button_solenoid2);
 
-  private final Tilter m_Tilter= new Tilter(m_box, button_solenoid3, button_solenoid4);
+  //private final Tilter m_Tilter= new Tilter(m_box, button_solenoid3, button_solenoid4);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -75,6 +79,8 @@ public class RobotContainer {
   private void configureButtonBindings() {
     button_solenoid.whenPressed(new DoorOpen(m_box));
     button_solenoid2.whenPressed(new DoorClose(m_box));
+    button_solenoid3.whenPressed(new Tilter(m_box, button_solenoid3, button_solenoid4 ));
+    button_solenoid4.whenPressed(new Tilter(m_box, button_solenoid3, button_solenoid4 ));
   }
 
 
