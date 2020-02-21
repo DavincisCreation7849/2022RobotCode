@@ -20,8 +20,8 @@ public class DrHang extends SubsystemBase {
    * Creates a new DrHang.
    */
   WPI_TalonSRX hangTalon;
-  WPI_TalonSRX elevatorTalon;
-  WPI_TalonSRX TiltTalon;
+  //WPI_TalonSRX elevatorTalon;
+  //WPI_TalonSRX TiltTalon;
   Faults fault;
 
 

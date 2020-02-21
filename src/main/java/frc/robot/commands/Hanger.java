@@ -22,13 +22,14 @@ public class Hanger extends CommandBase {
    */
   //private final 
   private DrHang hanger;
-  private Joystick dpad = new Joystick(0);
-  private int dpadValue = dpad.getPOV();
+//  private Joystick dpad = new Joystick(0);
+//  private int dpadValue = dpad.getPOV();
+  private Joystick m_joystick;
   private double elevatorSpeed = 1.0;
-   public Hanger() {
+   public Hanger(DrHang hang, Joystick nonDriveJoystick) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(hanger);
-
+    m_joystick = nonDriveJoystick;
   }
 
   // Called when the command is initially scheduled.
@@ -39,6 +40,7 @@ public class Hanger extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    int dpadValue = m_joystick.getPOV();
     if(dpadValue==0)
     {
       hanger.setElevatorPower(1.0);

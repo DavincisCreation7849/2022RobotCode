@@ -35,6 +35,8 @@ public class RobotContainer {
 //  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   private final DriveTrain m_drivetrain = new DriveTrain();
+
+  private final DrHang hangSubsystem = new DrHang();
   
   public Box m_box = new Box();
 
@@ -56,6 +58,10 @@ public class RobotContainer {
 
   private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);
 
+  private final Hanger m_Hanger = new Hanger(DrHang, nonDriveJoystick);
+
+
+
   //private final Door m_Door= new Door(m_box, button_solenoid, button_solenoid2);
 
   //private final Tilter m_Tilter= new Tilter(m_box, button_solenoid3, button_solenoid4);
@@ -68,6 +74,7 @@ public class RobotContainer {
     configureButtonBindings();
 
     m_drivetrain.setDefaultCommand(m_Drive);
+    hangSubsystem.setDefaultCommand(m_Hanger);
   }
 
   /**
