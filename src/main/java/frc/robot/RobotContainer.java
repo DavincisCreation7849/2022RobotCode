@@ -12,15 +12,15 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.subsystems.*;
-import frc.robot.commands.Door;
-import frc.robot.commands.DoorOpen;
-import frc.robot.commands.DoorClose;
-import frc.robot.commands.Drive;
-import frc.robot.commands.Tilter;
+import frc.robot.commands.*;
+//import frc.robot.commands.DoorClose;
+//import frc.robot.commands.Drive;
+//import frc.robot.commands.Tilter;
 //import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.driveLineAuto;
+//import frc.robot.commands.driveLineAuto;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+
 
 
 /**
@@ -58,7 +58,7 @@ public class RobotContainer {
 
   private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);
 
-  private final Hanger m_Hanger = new Hanger(DrHang, nonDriveJoystick);
+  private final Hanger m_Hanger = new Hanger(hangSubsystem, nonDriveJoystick);
 
 
 
