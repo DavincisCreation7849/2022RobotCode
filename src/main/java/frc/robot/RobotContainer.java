@@ -36,7 +36,7 @@ public class RobotContainer {
 
   private final DriveTrain m_drivetrain = new DriveTrain();
 
-  private final DrHang hangSubsystem = new DrHang();
+ // private final DrHang hangSubsystem = new DrHang();
   
   public Box m_box = new Box();
 
@@ -58,7 +58,11 @@ public class RobotContainer {
 
   private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);
 
-  private final Hanger m_Hanger = new Hanger(hangSubsystem, nonDriveJoystick);
+  private final DrHang m_LimitSwitch = new DrHang();
+
+  private final Hanger m_Switch = new Hanger(m_LimitSwitch,nonDriveJoystick);
+
+  //private final Hanger m_Hanger = new Hanger(hangSubsystem, nonDriveJoystick);
 
 
 
@@ -72,9 +76,9 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-
+    m_LimitSwitch.setDefaultCommand(m_Switch);
     m_drivetrain.setDefaultCommand(m_Drive);
-    hangSubsystem.setDefaultCommand(m_Hanger);
+    //hangSubsystem.setDefaultCommand(m_Hanger);
   }
 
   /**

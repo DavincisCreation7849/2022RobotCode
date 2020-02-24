@@ -15,8 +15,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-/*import frc.robot.subsystems.*;
-import frc.robot.commands.*;*/
+import frc.robot.subsystems.*;
+import frc.robot.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -28,8 +28,8 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
-  private DigitalInput downLimit;
-  private DigitalInput upLimit;
+  //private DigitalInput downLimit;
+  //private DigitalInput upLimit;
   private Joystick stick;
   private WPI_TalonSRX talon;
   /**
@@ -43,10 +43,10 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
     CameraServer.getInstance().startAutomaticCapture();
-    downLimit = new DigitalInput(1);
-    upLimit = new DigitalInput(2);
+    //downLimit = new DigitalInput(1);
+    //upLimit = new DigitalInput(2);
     stick = new Joystick(0);
-    talon = new WPI_TalonSRX(6);
+    talon = new WPI_TalonSRX(5);
     talon.configPeakCurrentLimit(5);
     talon.configPeakCurrentDuration(100);
     talon.configContinuousCurrentLimit(5);
@@ -130,7 +130,8 @@ public class Robot extends TimedRobot {
     }
     else if(upLimit.get() == true && stick.getPOV() == 0){
       talon.setElevatorPower(0);
-    }*/
+    }
+    */
   }
 
   @Override
