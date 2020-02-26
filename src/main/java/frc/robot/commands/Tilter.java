@@ -8,24 +8,24 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+//import edu.wpi.first.wpilibj2.command.button.JoystickButton;  //there is no button stuff in here
 import frc.robot.subsystems.*;
 
 
 public class Tilter extends CommandBase {
   /**
-   * Creates a new Tilter.
+   * Creates a new Tilter class.
    */
-  private Box m_Box;
+  private Box m_Box;  //makes a Box object called m_Box
   
 
-  public Tilter(Box box, boolean load) {
+  public Tilter(Box box, boolean load) {  //parameters are box object and boolean load
     m_Box=box;
-    if (load){
+    if (load){  //if load is true, run boxLoad method
       m_Box.boxLoad();
 
     }
-    else{
+    else{  //otherwise run boxDump method
       m_Box.boxDump();
     }
 

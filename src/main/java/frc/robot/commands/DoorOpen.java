@@ -17,9 +17,9 @@ public class DoorOpen extends CommandBase {
    * Creates a new DoorOpen.
    */
   Box m_box;
-  public DoorOpen(Box boxx) {
+  public DoorOpen(Box boxx) {  //constructor
     // Use addRequirements() here to declare subsystem dependencies.
-    m_box=boxx;
+    m_box = boxx;  //creates a parameter boxx to pass m_box to the method
   }
 
   // Called when the command is initially scheduled.

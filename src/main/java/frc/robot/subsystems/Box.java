@@ -29,48 +29,30 @@ public class Box extends SubsystemBase {
     solenoidDoor.set(state); //RMW
   }
 
-  public void doorOpen(/*DoubleSolenoid.Value value*/){
-    /*
-    if(value==Value.kOff)
-    {
-      solenoidDoor.set(value.kForward);
-    }
-    else if(value==Value.kReverse)
-    {
-      solenoidDoor.set(value.kReverse);
-    }
-    */
+  public void doorOpen(){  //open door method
+   
     solenoidDoor.set(Value.kForward);
   }
 
 
-  public void doorClose(/*DoubleSolenoid.Value value*/){
-    /*
-    if(value==Value.kOff)
-    {
-      solenoidDoor.set(value.kReverse);
-    }
-    else if(value==Value.kForward)
-    {
-      solenoidDoor.set(value.kReverse);
-    }
-    */
+  public void doorClose(){  //close door method
+    
     solenoidDoor.set(Value.kReverse);
   }
   
-  public void boxLoad(/*DoubleSolenoid.Value value*/){
+  public void boxLoad(){  //load balls method
     solenoidBox.set(Value.kForward);
 
   }
 
-  public void boxDump(){
+  public void boxDump(){  //dump balls method
     solenoidBox.set(Value.kReverse);
   }
 
-  public Value checkDoor(){
+  public Value checkDoor(){  //get status of door solenoid
     return solenoidDoor.get();
   }
-  public Value checkBox(){
+  public Value checkBox(){  //get status of box solenoid
     return solenoidBox.get();
 
   }

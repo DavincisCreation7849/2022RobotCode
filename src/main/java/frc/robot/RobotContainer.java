@@ -54,13 +54,13 @@ public class RobotContainer {
 
   public JoystickButton button_solenoid4 = new JoystickButton(nonDriveJoystick, 4);
 
-  private final DriveLineAuto driveAuto = new DriveLineAuto(m_drivetrain);  //makes a new DriveLineAuto object called driveAuto
+  private final DriveLineAuto driveAuto = new DriveLineAuto(m_drivetrain);  //makes a new DriveLineAuto object called driveAuto and passes m_drivetrain object to it
 
-  private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);  //makes a new Drive object called m_Drive, takes parameters m_drivetrain and driveJoystick
+  private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);  //makes a new Drive object called m_Drive, takes parameters m_drivetrain object and driveJoystick object
 
   private final DrHang m_LimitSwitch = new DrHang();  //makes a new DrHang object called m_Limitswitch
 
-  private final Hanger m_Switch = new Hanger(m_LimitSwitch,nonDriveJoystick);  //makes a new Hanger object called m_Switch, takes 2 parameters, m_LimitSwitchand NDJoystick
+  private final Hanger m_Switch = new Hanger(m_LimitSwitch,nonDriveJoystick);  //makes a new Hanger object called m_Switch, takes 2 parameters, m_LimitSwitchand object and NondriveJoystick
 
   //private final Hanger m_Hanger = new Hanger(hangSubsystem, nonDriveJoystick);
 
@@ -73,11 +73,11 @@ public class RobotContainer {
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
-  public RobotContainer() {
+  public RobotContainer() {  //constructor method
     // Configure the button bindings
-    configureButtonBindings();
-    m_LimitSwitch.setDefaultCommand(m_Switch);
-    m_drivetrain.setDefaultCommand(m_Drive);
+    configureButtonBindings();  //calls configureButtonBindings method below
+    m_LimitSwitch.setDefaultCommand(m_Switch);  //??  I don't see an m_LimitSwitch
+    m_drivetrain.setDefaultCommand(m_Drive);  //??  I don't see an m_drivetraiin
     //hangSubsystem.setDefaultCommand(m_Hanger);
   }
 
@@ -88,9 +88,9 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    button_solenoid.whenPressed(new DoorOpen(m_box));
+    button_solenoid.whenPressed(new DoorOpen(m_box));  //when pressed, makes a new DoorOpen command object, using the Box subsystem object m_box
     button_solenoid2.whenPressed(new DoorClose(m_box));
-    button_solenoid3.whenPressed(new Tilter(m_box, true ));
+    button_solenoid3.whenPressed(new Tilter(m_box, true ));  //why are these implemented differently?  Maybe implement in the same way for consistency?
     button_solenoid4.whenPressed(new Tilter(m_box, false));
   }
 
@@ -102,6 +102,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return driveAuto;
+    return driveAuto;  //driveAuto will run
   }
 }
