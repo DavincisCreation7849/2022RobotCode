@@ -26,7 +26,7 @@ public class Hanger extends CommandBase {
 //  private Joystick dpad = new Joystick(0);
 //  private int dpadValue = dpad.getPOV();
   private Joystick m_joystick;
-  private double elevatorSpeed = 1.0;
+  //private double elevatorSpeed = 1.0;  //replaced by setElevatorPower below
 
  
    public Hanger(DrHang hang, Joystick nonDriveJoystick) {
