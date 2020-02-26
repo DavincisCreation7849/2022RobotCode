@@ -20,7 +20,9 @@ public class Tilter extends CommandBase {
   
 
   public Tilter(Box box, boolean load) {  //parameters are box object and boolean load
+
     m_Box=box;
+    
     if (load){  //if load is true, run boxLoad method
       m_Box.boxLoad();
 

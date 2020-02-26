@@ -31,7 +31,7 @@ public class Hanger extends CommandBase {
  
    public Hanger(DrHang hang, Joystick nonDriveJoystick) {
     // Use addRequirements() here to declare subsystem dependencies.
-    hanger = hang;
+    hanger = hang;  //set variable equal to parameter so it can be used by method
     addRequirements(hanger);
     m_joystick = nonDriveJoystick;
   }
