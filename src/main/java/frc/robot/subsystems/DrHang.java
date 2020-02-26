@@ -38,9 +38,9 @@ public class DrHang extends SubsystemBase {
     //fault = new Faults();
   }
 
-  /*public void setElevatorPower(double power) {
+  public void setElevatorPower(double power) {
       hangTalon.set(ControlMode.PercentOutput, power);
-  }*/
+  }
 
   public boolean isLimitSwitch1On() {
     return limitSwitch1.get();

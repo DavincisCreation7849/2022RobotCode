@@ -47,7 +47,7 @@ public class Hanger extends CommandBase {
   public void execute() {
     SmartDashboard.putBoolean("Switch 1", hanger.isLimitSwitch1On());
     SmartDashboard.putBoolean("Switch 2", hanger.isLimitSwitch2On());
-    /*
+    
     int dpadValue = m_joystick.getPOV();
     if(dpadValue==0)
     {
@@ -59,18 +59,38 @@ public class Hanger extends CommandBase {
     }
     else{
       hanger.setElevatorPower(0.0);
-    }*/
+    }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    /*hanger.setElevatorPower(0.0);*/
+      hanger.setElevatorPower(0.0);
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+   // return false;
+    //the following code below is a possible option if limit switch code does not work
+    //however, it might not solve the problem of permanently disabling motor
+
+    /*if(hanger.isLimitSwitch1On() || hanger.isLimitSwitch2On()){return true;}
+    else {return false;}*/
+    
+    if (hanger.isLimitSwitch1On() && m_joystick.getPOV() == 0){
+      return false;}
+      else if (hanger.isLimitSwitch1On() && m_joystick.getPOV() == 180){
+       return true;}
+      else if (hanger.isLimitSwitch2On() && m_joystick.getPOV() == 0){
+        return true;}
+      else if (hanger.isLimitSwitch2On() && m_joystick.getPOV() == 180){
+        return false;}
+      else {return false;}
+    }
+      
+    
+    
+    
   }
-}
+

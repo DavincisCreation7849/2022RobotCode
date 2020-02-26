@@ -28,8 +28,8 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
-  //private DigitalInput downLimit;
-  //private DigitalInput upLimit;
+  //private DigitalInput downLimit = new DigitalInput(2);
+  //private DigitalInput upLimit = new DigitalInput(1);
   private Joystick stick;
   private WPI_TalonSRX talon;
   /**
@@ -43,8 +43,8 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
     CameraServer.getInstance().startAutomaticCapture();
-    //downLimit = new DigitalInput(1);
-    //upLimit = new DigitalInput(2);
+    //DigitalInput downLimit = new DigitalInput(1);
+    //DigitalInput upLimit = new DigitalInput(2);
     stick = new Joystick(0);
     talon = new WPI_TalonSRX(5);
     talon.configPeakCurrentLimit(5);
@@ -116,22 +116,25 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    /*
-    if(downLimit.get() == true && stick.getPOV() == 180){
-      talon.setElevatorPower(0);
+    //DigitalInput downLimit = new DigitalInput(1);
+    //DigitalInput upLimit = new DigitalInput(2);
+
+    /*if(downLimit.get() == true && stick.getPOV() == 180){
+      talon.set(ControlMode.PercentOutput, 0);
     }
     else if(downLimit.get() == true && stick.getPOV() == 0){
-      talon.setElevatorPower(1);
+      talon.set(ControlMode.PercentOutput,1);
 
     }
     else if(upLimit.get() == true && stick.getPOV() == 180){
-      talon.setElevatorPower(-1);
+      talon.set(ControlMode.PercentOutput,-1);
 
     }
     else if(upLimit.get() == true && stick.getPOV() == 0){
-      talon.setElevatorPower(0);
+      talon.set(ControlMode.PercentOutput,0);
     }
-    */
+    downLimit.close();
+    upLimit.close();*/
   }
 
   @Override

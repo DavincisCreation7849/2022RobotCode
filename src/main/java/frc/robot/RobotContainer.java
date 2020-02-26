@@ -7,19 +7,19 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.GenericHID;  //for getPOV(), getRawAxis(), getRawButton()
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.subsystems.*;
-import frc.robot.commands.*;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;  //gets value of Joystick button, takes parameter GenericHID joystick
+import edu.wpi.first.wpilibj.XboxController;  //getY, getX, etc.
+import frc.robot.subsystems.*;  //all subsystems
+import frc.robot.commands.*;  //all commands
 //import frc.robot.commands.DoorClose;
 //import frc.robot.commands.Drive;
 //import frc.robot.commands.Tilter;
 //import frc.robot.commands.ExampleCommand;
-//import frc.robot.commands.driveLineAuto;
-import frc.robot.subsystems.ExampleSubsystem;
-import edu.wpi.first.wpilibj2.command.Command;
+//import frc.robot.commands.DriveLineAuto;
+//import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj2.command.Command;  //??
 
 
 
@@ -34,33 +34,33 @@ public class RobotContainer {
   
 //  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-  private final DriveTrain m_drivetrain = new DriveTrain();
+  private final DriveTrain m_drivetrain = new DriveTrain();  //makes a new DriveTrain object called m_drivetrain
 
  // private final DrHang hangSubsystem = new DrHang();
   
-  public Box m_box = new Box();
+  public Box m_box = new Box();  //makes a new Box object called m_box
 
-  public Joystick driveJoystick = new Joystick(1);
+  public Joystick driveJoystick = new Joystick(1);  //makes a new Joystick object called driveJoystick, port 1
 
-  public Joystick nonDriveJoystick = new Joystick(0);
+  public Joystick nonDriveJoystick = new Joystick(0);  //makes a new Joystick object called nonDriveJoystick, port 0
 
 
 
-  public JoystickButton button_solenoid = new JoystickButton(nonDriveJoystick, 1);
+  public JoystickButton button_solenoid = new JoystickButton(nonDriveJoystick, 1);  //makes a new JoystickButton object called button_solenoid, taking 2 parameters, joystick and buttonNumber
 
-  public JoystickButton button_solenoid2 = new JoystickButton(nonDriveJoystick, 2);
+  public JoystickButton button_solenoid2 = new JoystickButton(nonDriveJoystick, 2);  //same
 
   public JoystickButton button_solenoid3 = new JoystickButton(nonDriveJoystick, 3);
 
   public JoystickButton button_solenoid4 = new JoystickButton(nonDriveJoystick, 4);
 
-  private final driveLineAuto driveAuto = new driveLineAuto(m_drivetrain);
+  private final DriveLineAuto driveAuto = new DriveLineAuto(m_drivetrain);  //makes a new DriveLineAuto object called driveAuto
 
-  private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);
+  private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);  //makes a new Drive object called m_Drive, takes parameters m_drivetrain and driveJoystick
 
-  private final DrHang m_LimitSwitch = new DrHang();
+  private final DrHang m_LimitSwitch = new DrHang();  //makes a new DrHang object called m_Limitswitch
 
-  private final Hanger m_Switch = new Hanger(m_LimitSwitch,nonDriveJoystick);
+  private final Hanger m_Switch = new Hanger(m_LimitSwitch,nonDriveJoystick);  //makes a new Hanger object called m_Switch, takes 2 parameters, m_LimitSwitchand NDJoystick
 
   //private final Hanger m_Hanger = new Hanger(hangSubsystem, nonDriveJoystick);
 
