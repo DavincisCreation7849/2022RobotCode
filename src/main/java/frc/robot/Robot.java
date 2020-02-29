@@ -30,8 +30,8 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
-  private DigitalInput downLimit;
-  private DigitalInput upLimit;
+  //private DigitalInput downLimit = new DigitalInput(2);
+  //private DigitalInput upLimit = new DigitalInput(1);
   private Joystick stick;
   private WPI_TalonSRX talon;
   private Timer timerHanger;
@@ -47,10 +47,10 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
     CameraServer.getInstance().startAutomaticCapture();
-    downLimit = new DigitalInput(1);
-    upLimit = new DigitalInput(2);
+    //DigitalInput downLimit = new DigitalInput(1);
+    //DigitalInput upLimit = new DigitalInput(2);
     stick = new Joystick(0);
-    talon = new WPI_TalonSRX(6);
+    talon = new WPI_TalonSRX(5);
     talon.configPeakCurrentLimit(5);
     talon.configPeakCurrentDuration(100);
     talon.configContinuousCurrentLimit(5);

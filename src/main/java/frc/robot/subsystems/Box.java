@@ -73,10 +73,10 @@ public class Box extends SubsystemBase {
     solenoidBox.set(Value.kReverse);
   }
 
-  public Value checkDoor(){
+  public Value checkDoor(){  //get status of door solenoid
     return solenoidDoor.get();
   }
-  public Value checkBox(){
+  public Value checkBox(){  //get status of box solenoid
     return solenoidBox.get();
 
   }

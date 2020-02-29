@@ -9,17 +9,17 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.Subsystem;
+//import edu.wpi.first.wpilibj2.command.Subsystem;  //never used
 import frc.robot.subsystems.*;
 
-public class driveLineAuto extends CommandBase {
+public class DriveLineAuto extends CommandBase {
   /**
    * Creates a new driveLineAutp.
    */
   private final DriveTrain m_drivetrain;
   private Timer timer;
 
-  public driveLineAuto(DriveTrain driveTrain) {
+  public DriveLineAuto(DriveTrain driveTrain) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_drivetrain = driveTrain;
     addRequirements(driveTrain);
@@ -36,7 +36,7 @@ public class driveLineAuto extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_drivetrain.driveMotors(0.25, -0.25);
+    m_drivetrain.driveMotors(0.35, -0.75);
   }
 
   // Called once the command ends or is interrupted.

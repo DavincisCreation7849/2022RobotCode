@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.Encoder;
 import frc.robot.Constants;
@@ -34,6 +35,7 @@ public class Hanger extends CommandBase {
     m_joystick = nonDriveJoystick;
   }
 
+
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
@@ -44,11 +46,13 @@ public class Hanger extends CommandBase {
   public void execute() {
     if(isEndGame) {
       int dpadValue = m_joystick.getPOV();
+      SmartDashboard.putBoolean("Switch 1", hanger.isLimitSwitch1On());
+      SmartDashboard.putBoolean("Switch 2", hanger.isLimitSwitch2On());
+  
       if(dpadValue==0)
       {
         System.out.println("raise hanger");
         hanger.setElevatorPower(1.0);
-
       }
       else if (dpadValue ==180){
         System.out.println("lower hanger");
@@ -63,13 +67,33 @@ public class Hanger extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    hanger.setElevatorPower(0.0);
+      hanger.setElevatorPower(0.0);
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+   // return false;
+    //the following code below is a possible option if limit switch code does not work
+    //however, it might not solve the problem of permanently disabling motor
+
+    /*if(hanger.isLimitSwitch1On() || hanger.isLimitSwitch2On()){return true;}
+    else {return false;}*/
+    
+    if (hanger.isLimitSwitch1On() && m_joystick.getPOV() == 0){
+      return false;}
+      else if (hanger.isLimitSwitch1On() && m_joystick.getPOV() == 180){
+       return true;}
+      else if (hanger.isLimitSwitch2On() && m_joystick.getPOV() == 0){
+        return true;}
+      else if (hanger.isLimitSwitch2On() && m_joystick.getPOV() == 180){
+        return false;}
+      else {return false;}
+    }
+      
+    
+    
+    
   }
 
   public void endGame(boolean state) {
