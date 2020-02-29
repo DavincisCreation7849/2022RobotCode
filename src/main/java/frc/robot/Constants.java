@@ -22,8 +22,8 @@ public final class Constants {
         public static final int driveRightFoloowerVictorChannel= 3;
         public static final int driveLeftVictorChannel = 2;
         public static final int driveLeftFollowerVictorChannel= 1;
-        public static final int solenoidBox = 5;
-        //public static final int HANG_TALON = 6;
+        public static final int solenoidBox = 6;
+        public static final int HANG_TALON = 5;
     }
     
 

@@ -17,11 +17,23 @@ public class Tilter extends CommandBase {
    * Creates a new Tilter.
    */
   private Box m_Box;
+  private boolean m_load;
   
 
   public Tilter(Box box, boolean load) {
+    System.out.println("tilt box constructor");
     m_Box=box;
-    if (load){
+    m_load = load;
+
+  
+    // Use addRequirements() here to declare subsystem dependencies.
+  }
+
+  // Called when the command is initially scheduled.
+  @Override
+  public void initialize() {
+    System.out.println("tilt box init");
+    if (m_load){
       m_Box.boxLoad();
 
     }
@@ -29,19 +41,14 @@ public class Tilter extends CommandBase {
       m_Box.boxDump();
     }
 
-    // Use addRequirements() here to declare subsystem dependencies.
-  }
-
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
 
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    
+    System.out.println("tilt box execute");
+
     
     
   }
@@ -54,6 +61,8 @@ public class Tilter extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    System.out.println("tilt box done");
+
     return true;
   }
 }

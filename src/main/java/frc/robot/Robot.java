@@ -15,6 +15,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import edu.wpi.first.wpilibj.Timer;
+
 /*import frc.robot.subsystems.*;
 import frc.robot.commands.*;*/
 
@@ -32,6 +34,8 @@ public class Robot extends TimedRobot {
   private DigitalInput upLimit;
   private Joystick stick;
   private WPI_TalonSRX talon;
+  private Timer timerHanger;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -50,6 +54,7 @@ public class Robot extends TimedRobot {
     talon.configPeakCurrentLimit(5);
     talon.configPeakCurrentDuration(100);
     talon.configContinuousCurrentLimit(5);
+    timerHanger = null;
   }
 
   /**
@@ -109,6 +114,10 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    m_robotContainer.endGame(false);
+    timerHanger = new Timer();
+    timerHanger.reset();
+    timerHanger.start();
   }
 
   /**
@@ -116,21 +125,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    /*
-    if(downLimit.get() == true && stick.getPOV() == 180){
-      talon.setElevatorPower(0);
+    if ((timerHanger != null) && (timerHanger.get() > 10/*105*/)) {
+      m_robotContainer.endGame(true);
+      timerHanger = null;
     }
-    else if(downLimit.get() == true && stick.getPOV() == 0){
-      talon.setElevatorPower(1);
-
-    }
-    else if(upLimit.get() == true && stick.getPOV() == 180){
-      talon.setElevatorPower(-1);
-
-    }
-    else if(upLimit.get() == true && stick.getPOV() == 0){
-      talon.setElevatorPower(0);
-    }*/
   }
 
   @Override

@@ -90,7 +90,6 @@ public class RobotContainer {
     button_solenoid4.whenPressed(new Tilter(m_box, false));
   }
 
-
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
@@ -99,5 +98,9 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     return driveAuto;
+  }
+
+  public void endGame(boolean state) {
+    m_Hanger.endGame(state);
   }
 }

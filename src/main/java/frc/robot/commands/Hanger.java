@@ -15,7 +15,6 @@ import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.DrHang;
 
-
 public class Hanger extends CommandBase {
   /**
    * Creates a new Hanger.
@@ -26,8 +25,11 @@ public class Hanger extends CommandBase {
 //  private int dpadValue = dpad.getPOV();
   private Joystick m_joystick;
   private double elevatorSpeed = 1.0;
+  private boolean isEndGame = false;
+
    public Hanger(DrHang hang, Joystick nonDriveJoystick) {
     // Use addRequirements() here to declare subsystem dependencies.
+    hanger = hang;
     addRequirements(hanger);
     m_joystick = nonDriveJoystick;
   }
@@ -40,18 +42,22 @@ public class Hanger extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    int dpadValue = m_joystick.getPOV();
-    if(dpadValue==0)
-    {
-      hanger.setElevatorPower(1.0);
+    if(isEndGame) {
+      int dpadValue = m_joystick.getPOV();
+      if(dpadValue==0)
+      {
+        System.out.println("raise hanger");
+        hanger.setElevatorPower(1.0);
 
-    }
-    else if (dpadValue ==180){
-      hanger.setElevatorPower(-1.0);
-    }
-    else{
-      hanger.setElevatorPower(0.0);
-    }
+      }
+      else if (dpadValue ==180){
+        System.out.println("lower hanger");
+        hanger.setElevatorPower(-1.0);
+      }
+      else{
+        hanger.setElevatorPower(0.0);
+      }
+    } 
   }
 
   // Called once the command ends or is interrupted.
@@ -64,5 +70,12 @@ public class Hanger extends CommandBase {
   @Override
   public boolean isFinished() {
     return false;
+  }
+
+  public void endGame(boolean state) {
+    if (state) {
+      System.out.println("EndGame mode");
+    }
+    isEndGame = state;
   }
 }

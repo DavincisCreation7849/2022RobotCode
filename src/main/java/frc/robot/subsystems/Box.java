@@ -40,6 +40,8 @@ public class Box extends SubsystemBase {
       solenoidDoor.set(value.kReverse);
     }
     */
+    System.out.println("doorOpen()");
+
     solenoidDoor.set(Value.kForward);
   }
 
@@ -55,15 +57,19 @@ public class Box extends SubsystemBase {
       solenoidDoor.set(value.kReverse);
     }
     */
+    System.out.println("doorClose()");
+
     solenoidDoor.set(Value.kReverse);
   }
   
   public void boxLoad(/*DoubleSolenoid.Value value*/){
+    System.out.println("boxLoad()");
     solenoidBox.set(Value.kForward);
 
   }
 
   public void boxDump(){
+    System.out.println("boxDump()");
     solenoidBox.set(Value.kReverse);
   }
 
