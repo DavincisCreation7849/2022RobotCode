@@ -12,14 +12,14 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.command.Subsystem;  //never used
 import frc.robot.subsystems.*;
 
-public class DriveLineAuto extends CommandBase {
+public class driveLineAuto extends CommandBase {
   /**
    * Creates a new driveLineAutp.
    */
   private final DriveTrain m_drivetrain;
   private Timer timer;
 
-  public DriveLineAuto(DriveTrain driveTrain) {
+  public driveLineAuto(DriveTrain driveTrain) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_drivetrain = driveTrain;
     addRequirements(driveTrain);
