@@ -94,12 +94,13 @@ public class Hanger extends CommandBase {
     
     
     
-  }
+  
 
-  public void endGame(boolean state) {
+  public void endGame(boolean state) {        
     if (state) {
       System.out.println("EndGame mode");
     }
-    isEndGame = state;
+   isEndGame = state;
   }
 }
+

@@ -36,7 +36,7 @@ public class RobotContainer {
 
   private final DriveTrain m_drivetrain = new DriveTrain();  //makes a new DriveTrain object called m_drivetrain
 
- // private final DrHang hangSubsystem = new DrHang();
+  private final DrHang hangSubsystem = new DrHang();
   
   public Box m_box = new Box();  //makes a new Box object called m_box
 
@@ -54,7 +54,7 @@ public class RobotContainer {
 
   public JoystickButton button_solenoid4 = new JoystickButton(nonDriveJoystick, 4);
 
-  private final DriveLineAuto driveAuto = new DriveLineAuto(m_drivetrain);  //makes a new DriveLineAuto object called driveAuto and passes m_drivetrain object to it
+  private final driveLineAuto driveAuto = new driveLineAuto(m_drivetrain);  //makes a new DriveLineAuto object called driveAuto and passes m_drivetrain object to it
 
   private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);  //makes a new Drive object called m_Drive, takes parameters m_drivetrain object and driveJoystick object
 
@@ -62,7 +62,7 @@ public class RobotContainer {
 
   private final Hanger m_Switch = new Hanger(m_LimitSwitch,nonDriveJoystick);  //makes a new Hanger object called m_Switch, takes 2 parameters, m_LimitSwitchand object and NondriveJoystick
 
-  //private final Hanger m_Hanger = new Hanger(hangSubsystem, nonDriveJoystick);
+  private final Hanger m_Hanger = new Hanger(hangSubsystem, nonDriveJoystick);
 
 
 
@@ -78,7 +78,7 @@ public class RobotContainer {
     configureButtonBindings();  //calls configureButtonBindings method below
     m_LimitSwitch.setDefaultCommand(m_Switch);  //??  I don't see an m_LimitSwitch
     m_drivetrain.setDefaultCommand(m_Drive);  //??  I don't see an m_drivetraiin
-    //hangSubsystem.setDefaultCommand(m_Hanger);
+    hangSubsystem.setDefaultCommand(m_Hanger);
   }
 
   /**
