@@ -36,7 +36,7 @@ public class RobotContainer {
 
   private final DriveTrain m_drivetrain = new DriveTrain();  //makes a new DriveTrain object called m_drivetrain
 
-  private final DrHang hangSubsystem = new DrHang();
+          //private final DrHang hangSubsystem = new DrHang();  RMW
   
   public Box m_box = new Box();  //makes a new Box object called m_box
 
@@ -58,11 +58,11 @@ public class RobotContainer {
 
   private final Drive m_Drive = new Drive(m_drivetrain, driveJoystick);  //makes a new Drive object called m_Drive, takes parameters m_drivetrain object and driveJoystick object
 
-  private final DrHang m_LimitSwitch = new DrHang();  //makes a new DrHang object called m_Limitswitch
+  private final DrHang m_LimitSwitch = new DrHang(); //  RMW 
 
-  private final Hanger m_Switch = new Hanger(m_LimitSwitch,nonDriveJoystick);  //makes a new Hanger object called m_Switch, takes 2 parameters, m_LimitSwitchand object and NondriveJoystick
+  private final Hanger m_Switch = new Hanger(m_LimitSwitch,nonDriveJoystick);  //  RMW
 
-  private final Hanger m_Hanger = new Hanger(hangSubsystem, nonDriveJoystick);
+          //private final Hanger m_Hanger = new Hanger(hangSubsystem, nonDriveJoystick);  //  RmW
 
 
 
@@ -78,7 +78,7 @@ public class RobotContainer {
     configureButtonBindings();  //calls configureButtonBindings method below
     m_LimitSwitch.setDefaultCommand(m_Switch);  //??  I don't see an m_LimitSwitch
     m_drivetrain.setDefaultCommand(m_Drive);  //??  I don't see an m_drivetraiin
-    hangSubsystem.setDefaultCommand(m_Hanger);
+                  //hangSubsystem.setDefaultCommand(m_Hanger);  //RMW
   }
 
   /**
@@ -105,6 +105,6 @@ public class RobotContainer {
   }
 
   public void endGame(boolean state) {
-    m_Hanger.endGame(state);
+                  m_Switch.endGame(state);  // was m_Hanger
   }
 }
